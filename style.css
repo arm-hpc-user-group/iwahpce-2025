@@ -1,11 +1,17 @@
+@import url(https://fonts.googleapis.com/css?family=Arvo:400,700,400italic);
+
 table.main{
     width:800px;
 }
 
 .title{
+    font-family: 'Arvo', cursive;	    
     font-size:25px;
 }
 
 .subtitle{
+    font-family: 'Arvo', cursive;	
     font-size:20px;
 }
+
+
