@@ -1,3 +1,4 @@
+
 @import url(https://fonts.googleapis.com/css?family=Arvo:400,700,400italic);
 
 table.main{
@@ -14,4 +15,7 @@ table.main{
     font-size:20px;
 }
 
+table.timetable{
+    Background:#dddddd;
+}
 

@@ -18,25 +18,94 @@
 This workshop aims to provide the opportunity to share the practice and experience of high-performance computing systems using the Arm architecture and their performance and applications.The last few years have seen an explosion of 64-bit Arm-based processors targeted toward server and infrastructure workloads, often specializing in a specific domain such as HPC, cloud, and machine learning. Fujitsu’s A64FX and Marvell’s ThunderX2 have been used in several large-scale HPC systems, and Amazon’s Graviton2 has been adopted by Amazon EC2. Moreover, Amazon’s Graviton3, NVIDIA Grace CPU Superchip, and SiPearl’s Rhea system-on-chip are recently announced or become accessible.Sharing the practice and experiences using these Arm-based processors will contribute to advancing high-performance computing technology for newly designed systems using these new emerging Arm-based processors.<br><br>
 	  <!--------------------------------------------->
 	  <div class="subtitle">Program</div><br>
-		&nbsp;&nbsp;&nbsp;-&nbsp;<table>
-			<tr><td>09:00-09:10</td><td>Miwako Tsuji</td><td>Opening Remarks</td></tr>
-		<tr><td>09:10-10:00</td>Koichi Shirahata<td></td><td><b>Invited Talk: Fugaku-LLM: A Large Language Model Trained on the Supercomputer Fugaku</b><br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;<table class="timetable">
+	    		<tr><td valign="top" witdth="50px">&nbsp;&nbsp;&nbsp;</td><td valign="top" witdth="100px"></td><td valign="top" witdth="200px"></td></tr>
+			<tr><td valign="top">09:00-09:10&nbsp;&nbsp;&nbsp;</td><td valign="top">Miwako Tsuji</td><td valign="top"><b>Opening Remarks</b></td></tr>
+		<tr><td valign="top">09:10-10:00&nbsp;&nbsp;&nbsp;</td><td valign="top">Koichi Shirahata</td><td valign="top"><b>Invited Talk: Fugaku-LLM: A Large Language Model Trained on the Supercomputer Fugaku</b><br>
 Abstract: 
 While not initially designed for large-scale deep learning models like Large Language Models (LLMs), Japan's flagship supercomputer, Fugaku, provided a unique opportunity. This work details the optimization of deep learning frameworks for distributed parallel execution on Fugaku, creating a high-performance computing environment for LLM training. A novel LLM was trained from scratch using a large dataset primarily focused on Japanese text.
 </td></tr>
-		<tr><td></td><td></td><td></td></tr>
-		<tr><td></td><td></td><td></td></tr>
-		<tr><td></td><td></td><td></td></tr>
-		<tr><td></td><td></td><td></td></tr>
-		<tr><td></td><td></td><td></td></tr>
-		
+			<tr><td valign="top">10:00-10:30&nbsp;&nbsp;&nbsp;</td><td valign="top">Shinji  Sumimoto, Takashi  Arakawa, Yoshio  Sakaguchi, Hiroya  Matsuba, Satoshi  Ohshima, Hisashi  Yashiro, Toshihiro  Hanawa, Kengo  Nakajima</td><td valign="top"><b>Accelerating Heterogeneous Coupling Computing with WaitIO Using RDMA</b> <br>Abstract: In this paper, we propose communication libraries WaitIO-Verbs
+andWaitIO-Tofu using RDMA communication to speed up communication
+performance in the h3-OpenSYS/WaitIO (WaitIO) library,
+which can connect multiple MPI programs across multiple heterogeneous
+systems. It is important to use industry-standard communication
+methods for communication between heterogeneous systems,
+and WaitIO implements WaitIO-Socket and WaitIO-File, which use
+POSIX-based specifications for socket and file IO. However, since
+POSIX specifications generally use system calls, there is a possibility
+that sufficient performance may not be obtained depending on
+the system. Therefore, to further speed up communication, we implemented
+WaitIO-Verbs and WaitIO-Tofu using user-level RDMA
+using industry-standard or default system communication specifications.
+As a result of implementation and evaluation, we achieved
+high communication performance and application performance.
+WaitIO achieved high application performance even between multiple
+heterogeneous clusters, which MPI could not achieve.</td></tr>
+			<tr><td valign="top">10:30-11:00&nbsp;&nbsp;&nbsp;</td><td valign="top"></td><td valign="top">Break</td></tr>
+			<tr><td valign="top">11:00-11:30&nbsp;&nbsp;&nbsp;</td><td valign="top">Oscar  Hernandez, Thomas  Wang, Wael  Elwasif, Filippo  Spiga, Francesca  Tartaglione, Markus  Eisenbach, Ross  Miller</td><td valign="top"><b>Preliminary Study on Fine-Grained Power and Energy Measurements on Grace Hopper GH200 with Open-Source Performance Tools</b> <br>Abstract: The increasing adoption of tightly integrated, heterogeneous architectures,
+combined with the slowdown of Moore’s law, has made
+application power and energy-driven optimizations critical to efficiently
+use high-performance computing systems. This paper introduces
+a newly developed open-source toolkit that seamlessly
+integrates the Linux real-time hardware monitoring program hwmon
+with the Performance Application Programming Interface and the
+Score-P performance measurement system, thereby enabling finegrained
+power and energy measurements for high-performance
+computing applications. Our primary target platform is theWombat
+test bed, which is a system based on the NVIDIA GH200 superchip.
+The toolkit can capture transient power peaks with high temporal
+resolution (50 ms) and, thanks to Score-P integration, can map
+power metrics to specific code regions, thereby providing actionable
+information on power-intensive operations and inefficiencies.
+The toolkit also provides a holistic view of both the power and the
+energy consumption of the entire GH200 superchip by covering all
+major components: the Grace CPU, the Hopper GPU, and the I/O
+subsystem. Experiments that use Locally Self-consistent Multiple
+Scattering, which is an application for first-principles calculations
+of materials developed at Oak Ridge National Laboratory, have
+demonstrated the tool’s ability to identify transient power spikes
+and uncover opportunities for energy-aware optimizations. Additionally,
+we introduce a Python-based utility for converting Open
+Trace Format 2 traces to Parquet format, thus enabling advanced
+data analysis for numerical integration methods applied to power
+data for accurate energy profiling.</td></tr>
+			<tr><td valign="top">11:30-12:00&nbsp;&nbsp;&nbsp;</td><td valign="top">David  Carlson, Nikolay  Simakov, Rodrigo  Ristow Hadlich, Anthony  Curtis, Joshua  Martin, Gaurav  Verma, Smeet  Chheda, Firat  Coskun, Raul  Gonzalez, Daniel  Wood, Feng  Zhang, Robert  Harrison, Eva  Siegmann</td><td valign="top"><b>The AmpereOne A192-32X in Perspective: Benchmarking a New Standard</b> <br>Abstract:  This study presents a comprehensive benchmarking analysis of the Arm-based AmpereOne A192-32X CPU, a high-performance but
+low power processor designed for cloud-native workloads characterized by high core occupancy, imperfectly-vectorized or even
+pure scalar software, limited need for high floating-point performance, and, increasingly, AI inference. These traits also characterize
+much of academic research computing . Hence a thorough investigation of this novel CPU seeking to characterize its strengths and
+weaknesses on academic workloads, including traditional HPC codes for which it was not designed, will shed light on its relevance in a
+research setting. We report comparative analyses with contemporary CPUs (Intel Sapphire Rapids, AMD EPYC, NVIDIA Grace-Grace)
+and illustrate AmpereOne’s architectural advantages in handling parallel workloads and optimizing power consumption. The CPUs
+are compared in terms of performance and power consumption using a wide range of applications covering different workloads and
+disciplines.</td></tr>
+			<tr><td valign="top">12:00-12:30&nbsp;&nbsp;&nbsp;</td><td valign="top">Xuanzhengbo  Ren, Yuta  Kawai, Hirofumi  Tomita, Seiya  Nishizawa, Takahiro  Katagiri, Tetsuya  Hoshino, Daichi  Mukunoki, Masatoshi  Kawai, Toru  Nagai</td><td valign="top"><b>Performance Evaluation of Loop Body Splitting for Fast Modal Filtering in SCALE-DG on A64FX</b> <br>Abstract: Modern general-purpose central processing units (CPUs) benefit
+from the integration of Single Instruction, Multiple Data (SIMD) architectures.
+Scalable Vector Extensions (SVE) is one of Arm’s SIMD
+architectures designed for HPC. Fujitsu’s A64FX is the first Armbased
+processor to incorporate hardware-implemented SVE alongside
+High-Bandwidth Memory 2 (HBM2). However, in the A64FX,
+the high latencies of SIMD instructions, such as fused multiply-add
+(FMA), combined with the limited capacity of reservation stations,
+can result in inefficient Out-of-Order (OoO) execution. SCALEDG
+is an atmospheric dynamical core that uses the discontinuous
+Galerkin Method (DGM). Modal filtering, an essential procedure
+in SCALE-DG, has an optimized version called fast modal filtering,
+which suffers from the OoO execution issue due to dot products
+with long vector lengths in the loop body. This issue can be alleviated
+by splitting the loop body into multiple parts. However, since
+the vector length of the dot product varies with the polynomial
+order (𝑃) in SCALE-DG, it remains unclear how the number of
+splits affects the performance of fast modal filtering. In this paper,
+we present an evaluation across 𝑃 values in the range of 3 to 11
+with different splitting numbers and combinations. The results indicate
+that when 𝑃 ≤ 7, performance degraded in most cases, with
+only a few cases achieving positive speedups (1.01x to 1.02x) after
+splitting the loop body. For 8 ≤ 𝑃 ≤ 11, splitting had a consistently
+positive impact. The 3-way splitting was identified as the optimal
+configuration, achieving speedups of 1.15x to 1.26x.</td></tr>
 		</table>
-09:10-10:00 Koichi Shirahata, Invited talk (title: TBA)
-10:00-10:30 Shinji  Sumimoto, Takashi  Arakawa, Yoshio  Sakaguchi, Hiroya  Matsuba, Satoshi  Ohshima, Hisashi  Yashiro, Toshihiro  Hanawa, Kengo  Nakajima, "Accelerating Heterogeneous Coupling Computing with WaitIO Using RDMA"
-10:30-11:00 Break
-11:00-11:30 Oscar  Hernandez, Thomas  Wang, Wael  Elwasif, Filippo  Spiga, Francesca  Tartaglione, Markus  Eisenbach, Ross  Miller, "Preliminary Study on Fine-Grained Power and Energy Measurements on Grace Hopper GH200 with Open-Source Performance Tools"
-11:30-12:00 David  Carlson, Nikolay  Simakov, Rodrigo  Ristow Hadlich, Anthony  Curtis, Joshua  Martin, Gaurav  Verma, Smeet  Chheda, Firat  Coskun, Raul  Gonzalez, Daniel  Wood, Feng  Zhang, Robert  Harrison, Eva  Siegmann, "The AmpereOne A192-32X in Perspective: Benchmarking a New Standard",
-12:00-12:30 Xuanzhengbo  Ren, Yuta  Kawai, Hirofumi  Tomita, Seiya  Nishizawa, Takahiro  Katagiri, Tetsuya  Hoshino, Daichi  Mukunoki, Masatoshi  Kawai, Toru  Nagai, "Performance Evaluation of Loop Body Splitting for Fast Modal Filtering in SCALE-DG on A64FX",
+<br><br>
 	  <!--------------------------------------------->		
 	  <div class="subtitle">Topics</div>
 	  <br>
